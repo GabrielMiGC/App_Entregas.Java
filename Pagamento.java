@@ -1,4 +1,5 @@
-package TrabalhoAppEntregas;
+package AppEntregas;
+
 
 public class Pagamento {
 	private String NomeDoCartao;
