@@ -1,4 +1,4 @@
-package TrabalhoAppEntregas;
+package AppEntregas;
 
 import java.util.Date;
 

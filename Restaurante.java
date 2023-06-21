@@ -1,4 +1,4 @@
-package TrabalhoAppEntregas;
+package AppEntregas;
 
 public class Restaurante {
 	public String nome;

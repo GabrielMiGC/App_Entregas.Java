@@ -1,4 +1,4 @@
-package TrabalhoAppEntregas;
+package AppEntregas;
 
 public class Endereco {
 	private String rua;
