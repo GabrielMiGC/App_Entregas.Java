@@ -1,12 +1,15 @@
 package AppEntregas;
 
+
 import java.util.Date;
+
 
 public class Funcionario {
 	public String nomeFuncionario;
 	public String funcao;
-	private Date nascimento;
+	protected Date nascimento;
 	
+
 	public String getNomeFuncionario() {
 		return nomeFuncionario;
 	}

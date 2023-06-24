@@ -7,6 +7,21 @@ public class Endereco {
 	private int cep;
 	private String pontoDeReferencia;
 	
+	// Contrutor "vazio" para chamar o construtor base
+	public Endereco() {
+		this("Rua ex", 777, "bairro ex", 00000, "Ao lado do exemplo");
+	}
+	
+	// Construtor implementando valores base
+	public Endereco(String rua, int numero, String bairro, int cep, String pontRef) {
+		setRua(rua);
+		setNumero(numero);
+		setBairro(bairro);
+		setCep(cep);
+		setPontoDeReferencia(pontRef);
+	}
+
+
 	public String getRua() {
 		return rua;
 	}
