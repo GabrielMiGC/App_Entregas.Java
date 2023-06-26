@@ -1,19 +1,23 @@
 package AppEntregas;
 
-import java.util.ArrayList;
-
 public class Pedido {
-	Restaurante restaurante;
-	Pratos prato;
-	Endereco endereco;
-	
-	public String StatusDoPedido() {
-		if() { //pedido concluido
-			return "Pedido de " + prato.nomePrato+ "concluido";
-		}if() { //pedido na lista do entregador
-			return "Pedido de " + prato.nomePrato + "a caminho";
-		}if() { //pedido em produção
-			return "Pedido esta sendo feito";
-		}
-	}
+    Restaurante restaurante;
+    Prato prato;
+    Endereco endereco;
+
+    public String StatusDoPedido() {
+        if (restaurante != null && prato != null && endereco != null) {
+            // concluído!!
+            return "Pedido de " + prato.nomePrato + " concluído";
+        } else if (restaurante != null && prato != null) {
+            // na lista para entrega
+            return "Pedido de " + prato.nomePrato + " a caminho";
+        } else if (restaurante != null) {
+            // em produção
+            return "Pedido está sendo feito";
+        } else {
+            // quando algum atributo está nulo
+            return "Pedido inválido";
+        }
+    }
 }
