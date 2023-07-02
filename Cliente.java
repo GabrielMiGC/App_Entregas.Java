@@ -10,7 +10,7 @@ public class Cliente {
 	Pagamento pagamento;
 	Pedido pedido;
 
-	public Cliente(String nome, Date nascimento, String rua, int numero, String bairro, int CEP, String pontoDeReferencia, String NomeDoCartao, int Numero, int CVV, String DataVencimento){
+	public Cliente(String nome, Date nascimento, String rua, int numero, String bairro, String CEP, String pontoDeReferencia, String NomeDoCartao, int Numero, int CVV, String DataVencimento){
 		this.nome = nome;
 		this.enderecoCliente = new Endereco(rua, numero, bairro, CEP, pontoDeReferencia);
 		this.nascimento = nascimento;
