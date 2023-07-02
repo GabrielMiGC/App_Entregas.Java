@@ -22,8 +22,9 @@ public class Pedido {
 
         while (true) {
             System.out.println("***** Menu *****");
-            System.out.println("1. Fazer Pedido");
-            System.out.println("2. Cancelar Pedido");
+            System.out.println("1. Fazer pedido");
+            System.out.println("2. Cancelar pedido");
+	    System.out.println("3. Ver status do pedido");
             System.out.println("0. Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -37,6 +38,10 @@ public class Pedido {
                 case 2:
                     cancelarPedido();
                     break;
+		case 3:
+                    statusDoPedido();
+                    break;
+			
                 case 0:
                     return;
                 default:
@@ -119,18 +124,18 @@ public class Pedido {
         }
     }
 	
-    public int StatusDoPedido() {
+    public int statusDoPedido() {
         if (restaurante != null && prato != null && endereco != null) {
             // concluído!!
-        	System.out.println("Pedido de " + prato.nomePrato + " concluído");
+        	System.out.println("Pedido de " + prato.nomePrato + " foi concluído");
             return 1;
         } else if (restaurante != null && prato != null) {
             // na lista para entrega
-        	System.out.println("Pedido de " + prato.nomePrato + " a caminho");
+        	System.out.println("Pedido de " + prato.nomePrato + " esta a caminho");
             return 2;
         } else if (restaurante != null) {
             // em produção
-        	System.out.println("Pedido está sendo feito");
+        	System.out.println("Pedido está sendo preparado");
             return 3;
         } else {
             // quando algum atributo está nulo
