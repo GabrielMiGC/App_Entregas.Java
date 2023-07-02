@@ -24,8 +24,10 @@ public class Main {
 				System.out.println("________________________________________________________________");
 				System.out.println("NOME COMPLETO:");
 				String nome = (sc.nextLine());
-				System.out.println("IDADE:");
-				int idade = Integer.parseInt(sc.nextLine());
+				System.out.println("DATA DE NASCIMENTO:");
+				String nascimentoCliente =(sc.nextLine());
+				SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+        		Date NascimentoCliente = formatoData.parse(nascimentoCliente);
 
 				System.out.println("________________________________________________________________");
 				System.out.println("DADOS DO PAGAMENTO");
@@ -52,7 +54,7 @@ public class Main {
 				String referencia = (sc.nextLine());
 				System.out.println("________________________________________________________________");
 
-				Cliente cliente = new Cliente(nome, idade, rua, numero, bairro, CEP, referencia, nomeDoCartao, numerocartao, CVV, dataVencimento);
+				Cliente cliente = new Cliente(nome, NascimentoCliente, rua, numero, bairro, CEP, referencia, nomeDoCartao, numerocartao, CVV, dataVencimento);
 				do{
 					System.out.println("O QUE DESEJA FAZER: ");
 					System.out.println("1 - OLHAR CARDÁPIO  ");
@@ -139,8 +141,8 @@ public class Main {
 				int funcao = Integer.parseInt(sc.nextLine());
 				System.out.println("DATA DE NASCIMENTO:");
 				String nascimento =(sc.nextLine());
-				SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
-        		Date Nascimento = formatoData.parse(nascimento);
+				SimpleDateFormat formatoDataFunc = new SimpleDateFormat("dd/MM/yyyy");
+        		Date Nascimento = formatoDataFunc.parse(nascimento);
 
 				if (funcao == 1){
 					System.out.printf("QUAL RESTAURANTE VOCÊ TRABALHA?\n");
