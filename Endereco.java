@@ -4,7 +4,7 @@ public class Endereco {
 	private String rua;
 	private int numero;
 	private String bairro;
-	private int cep;
+	private String cep;
 	private String pontoDeReferencia;
 	
 	// Contrutor "vazio" para chamar o construtor base
@@ -12,12 +12,12 @@ public class Endereco {
         this.rua = "";
         this.numero = 0;
         this.bairro = "";
-        this.cep = 0;
+        this.cep = "";
         this.pontoDeReferencia = "";
     }
 	
 	// Construtor implementando valores base
-	public Endereco(String rua, int numero, String bairro, int cep, String pontRef) {
+	public Endereco(String rua, int numero, String bairro, String cep, String pontRef) {
 		setRua(rua);
 		setNumero(numero);
 		setBairro(bairro);
@@ -44,7 +44,7 @@ public class Endereco {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
 	public void setCep(int cep) {
