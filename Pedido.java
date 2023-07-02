@@ -2,76 +2,61 @@ package AppEntregas;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Pedido {
     private String restaurante;
-    private Prato prato;
+    private Pratos prato;
     private Endereco endereco;
-    private boolean cancelado;
+    private int statusDoPedido;
 
     public Pedido() {
         this.restaurante = null;
         this.prato = null;
         this.endereco = null;
-        this.cancelado = false;
+        this.statusDoPedido = 0;
     }
 
-    public void exibirMenu() {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("***** Menu *****");
-            System.out.println("1. Fazer Pedido");
-            System.out.println("2. Cancelar Pedido");
-            System.out.println("0. Sair");
-
-            System.out.print("Escolha uma opção: ");
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (opcao) {
-                case 1:
-                    fazerPedido();
-                    break;
-                case 2:
-                    cancelarPedido();
-                    break;
-                case 0:
-                    return;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }
-        }
-    }
-    public void fazerPedido(String nomeRestaurante) {
-        restaurante = nomeRestaurante;
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("***** Faça seu pedido e adicione seu endereço *****");
-        System.out.print("Prato: ");
-        String nomePrato = scanner.nextLine();
-        prato = new Prato(nomePrato);
-
-        System.out.print("Endereço: ");
-        String enderecoCompleto = scanner.nextLine();
-        endereco = new Endereco(enderecoCompleto);
+    public Pedido(String restaurante, Pratos prato, Endereco endereco){
+        this.restaurante = restaurante;
+        this.prato = prato;
+        this.endereco = endereco;
+        this.statusDoPedido = 0;
     }
 
-    //public void cancelarPedidos(){}
+    public void setStatusDoPedido(int Status){
+		this.statusDoPedido = Status;
+	}
+	
+	public String getStatusDoPedido(Pedido pedido) {
+		if(pedido.statusDoPedido == 3) { //pedido entregue
+			return "Pedido de " + prato.nomePrato+ "entregue";
+		}else if(pedido.statusDoPedido == 2) { //pedido na lista do entregador
+			return "Pedido de " + prato.nomePrato + "a caminho";
+		}else if(pedido.statusDoPedido == 1) { //pedido em produção
+			return "Pedido esta sendo feito";
+		}else{
+			return "Status invalido";
+		}
+	}
+
+    public void fazerPedido(Restaurante restaurante, Pratos prato, Endereco endereco) {
+        String nomeRestaurante = restaurante.nome;
+
+        new Pedido(nomeRestaurante, prato, endereco);
+    }
     
-    public void arqPedidos() {
+    
+    public void arqPedidos(Pedido pedido) {
         String nomeArquivo = "Pedidos feitos.txt";
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
-            writer.write("Restaurante: " + restaurante);
+            writer.write("Restaurante: " + pedido.restaurante);
             writer.newLine();
-            writer.write("Prato: " + prato.getNomePrato());
+            writer.write("Prato: " + pedido.prato);
             writer.newLine();
-            writer.write("Endereço: " + endereco.getEnderecoCompleto());
+            writer.write("Endereço: " + pedido.endereco);
             writer.newLine();
-            writer.write("Status: " + getStatusDoPedido());
+            writer.write("Status: " + pedido.statusDoPedido);
             writer.newLine();
             System.out.println("Pedido salvo com sucesso no arquivo: " + nomeArquivo);
         } catch (IOException e) {
@@ -80,4 +65,3 @@ public class Pedido {
     }
     //public void removerPedidoCancelado(){}
 }
-    //status do pedido

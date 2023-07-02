@@ -2,27 +2,33 @@ package AppEntregas;
 import java.util.Scanner;
 
 public class Pagamento {
-    private String NomeDoCartao;
-    private int Numero;
+    private String nomeDoCartao;
+    private int numero;
     private int CVV;
-    private String DataVencimento;
+    private String dataVencimento;
 
     private Scanner scanner = new Scanner(System.in);
+    public Pagamento(String nomeDoCartao, int numero, int CVV, String dataVencimento){
+        this.nomeDoCartao = nomeDoCartao;
+        this.numero = numero;
+        this.CVV = CVV;
+        this.dataVencimento = dataVencimento;
+    }
 
     public String getNomeDoCartao() {
-        return NomeDoCartao;
+        return nomeDoCartao;
     }
 
     public void setNomeDoCartao(String nomeDoCartao) {
-        NomeDoCartao = nomeDoCartao;
+        this.nomeDoCartao = nomeDoCartao;
     }
 
     public int getNumero() {
-        return Numero;
+        return numero;
     }
 
     public void setNumero(int numero) {
-        Numero = numero;
+        this.numero = numero;
     }
 
     public int getCVV() {
@@ -30,15 +36,15 @@ public class Pagamento {
     }
 
     public void setCVV(int cVV) {
-        CVV = cVV;
+        this.CVV = cVV;
     }
 
     public String getDataVencimento() {
-        return DataVencimento;
+        return dataVencimento;
     }
 
     public void setDataVencimento(String dataVencimento) {
-        DataVencimento = dataVencimento;
+        this.dataVencimento = dataVencimento;
     }
 
     public void realizarPagamento() {
@@ -98,31 +104,31 @@ public class Pagamento {
         System.out.println("Valor: " + valor);
     }
 
-    public void alterarFormaPagamento() {
-        System.out.println("Forma de pagamento atual: " + pedido.getFormaPagamento());
-        System.out.println("Selecione a nova forma de pagamento:");
-        System.out.println("1. Cartão de Crédito");
-        System.out.println("2. Cartão de Débito");
-        System.out.println("3. Pix");
+    // public void alterarFormaPagamento() {
+    //     System.out.println("Forma de pagamento atual: " + pedido.getFormaPagamento());
+    //     System.out.println("Selecione a nova forma de pagamento:");
+    //     System.out.println("1. Cartão de Crédito");
+    //     System.out.println("2. Cartão de Débito");
+    //     System.out.println("3. Pix");
 
-        int opcao = scanner.nextInt();
+    //     int opcao = scanner.nextInt();
 
-        switch (opcao) {
-            case 1:
-                pedido.setFormaPagamento("Cartão de Crédito");
-                processarPagamentoCartaoCredito();
-                break;
-            case 2:
-                pedido.setFormaPagamento("Cartão de Débito");
-                processarPagamentoCartaoDebito();
-                break;
-            case 3:
-                pedido.setFormaPagamento("Pix");
-                processarPagamentoPix();
-                break;
-            default:
-                System.out.println("Opção inválida!");
-                return;
-        }
-    }
+    //     switch (opcao) {
+    //         case 1:
+    //             pedido.setFormaPagamento("Cartão de Crédito");
+    //             processarPagamentoCartaoCredito();
+    //             break;
+    //         case 2:
+    //             pedido.setFormaPagamento("Cartão de Débito");
+    //             processarPagamentoCartaoDebito();
+    //             break;
+    //         case 3:
+    //             pedido.setFormaPagamento("Pix");
+    //             processarPagamentoPix();
+    //             break;
+    //         default:
+    //             System.out.println("Opção inválida!");
+    //             return;
+    //     }
+    // }
 }

@@ -9,8 +9,12 @@ public class Endereco {
 	
 	// Contrutor "vazio" para chamar o construtor base
 	public Endereco() {
-		this("Rua ex", 777, "bairro ex", 00000, "Ao lado do exemplo");
-	}
+        this.rua = "";
+        this.numero = 0;
+        this.bairro = "";
+        this.cep = 0;
+        this.pontoDeReferencia = "";
+    }
 	
 	// Construtor implementando valores base
 	public Endereco(String rua, int numero, String bairro, int cep, String pontRef) {

@@ -10,7 +10,12 @@ public class Funcionario {
 	protected Date nascimento;
 	
 
-	public String getNomeFuncionario() {
+	public Funcionario(String nomeFuncionario, String funcao, Date nascimento) {
+		setNomeFuncionario(nomeFuncionario);
+		setFuncao(funcao);
+		setNascimento(nascimento);
+    }
+    public String getNomeFuncionario() {
 		return nomeFuncionario;
 	}
 	public void setNomeFuncionario(String nomeFuncionario) {
