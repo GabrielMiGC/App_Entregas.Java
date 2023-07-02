@@ -16,6 +16,30 @@ public class Pedido {
         this.statusDoPedido = 0;
     }
 
+public String getRestaurante() {
+        return restaurante;
+}
+
+public void setRestaurante(String restaurante) {
+        this.restaurante = restaurante;
+}
+
+public Pratos getPrato() {
+        return prato;
+    }
+
+public void setPrato(Pratos prato) {
+        this.prato = prato;
+    }
+
+public Endereco getEndereco() {
+        return endereco;
+    }
+
+public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+	
     public Pedido(String restaurante, Pratos prato, Endereco endereco){
         this.restaurante = restaurante;
         this.prato = prato;
